@@ -96,5 +96,12 @@
     </div>
   </div>
 
+  <div [hidden]="!isNotSubmitted" class="alert alert-danger">
+    Network error
+  </div>
+  <div [hidden]="!isSubmitted" class="alert alert-success">
+    Form submitted successfully.
+  </div>
+
   <button type="submit" class="btn btn-primary btn-md" [disabled]="!info.form.valid">Proceed</button>
 </form>

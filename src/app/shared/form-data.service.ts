@@ -63,4 +63,7 @@ export class FormDataService {
   isFormValid() {
     return this.isIntroductionValid && this.isInformationValid;
   }
+  isForm1Valid() {
+    return this.isIntroductionValid;
+  }
 }

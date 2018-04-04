@@ -10,13 +10,7 @@ export class FormSubmitService {
   constructor(private http: HttpClient) { }
 
   submit(formData: FormData) {
-    this.http.post(this.url + '/user', formData).subscribe((response) => {
-      console.log(response);
-    }, (error) => {
-      console.log(error);
-    }, () => {
-      console.log('completed');
-    });
+    return this.http.post(this.url + '/user', formData);
   }
 
 }
