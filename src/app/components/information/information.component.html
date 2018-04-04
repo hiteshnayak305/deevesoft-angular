@@ -1,73 +1,100 @@
-<div class="form-group">
-  <label for="state" class="font-weight-bold">State</label>
-  <input type="text" id="state" class="form-control" aria-describedby="state">
-</div>
-<hr>
-<div class="form-group">
-  <label for="age" class="font-weight-bold">Age</label>
-  <input type="number" min="0" max="150" id="age" class="form-control" aria-describedby="age">
-</div>
-<hr>
-<legend class="col-form-label">Ethnicity</legend>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="ethnicity" id="inlineRadio1" value="hispanic or latino">
-  <label class="form-check-label" for="inlineRadio1">Hispanic or Latino</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="ethnicity" id="inlineRadio2" value="non-hispanic or non-latino">
-  <label class="form-check-label" for="inlineRadio2">Non Hispanic or Non Latino</label>
-</div>
-<hr>
-<legend class="col-form-label">Race</legend>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="race" id="inlineRadio1" value="american indian">
-  <label class="form-check-label" for="inlineRadio1">American Indian</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="race" id="inlineRadio2" value="asian">
-  <label class="form-check-label" for="inlineRadio2">Asian</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="race" id="inlineRadio3" value="native hawaiian or other pacific islander">
-  <label class="form-check-label" for="inlineRadio3">Native Hawaiian or Other Pacific Islander</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="race" id="inlineRadio4" value="black or african american">
-  <label class="form-check-label" for="inlineRadio4">Black or African American</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="race" id="inlineRadio5" value="white">
-  <label class="form-check-label" for="inlineRadio5">White</label>
-</div>
-<hr>
-<legend class="col-form-label">Sex</legend>
-<div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="male">
-    <label class="form-check-label" for="inlineRadio1">Male</label>
+<form #info="ngForm" (ngSubmit)="onSubmit(info)">
+  <div class="form-group">
+    <label for="state">State</label>
+    <input type="text" [(ngModel)]="information.state" name="state" #state="ngModel" id="state" class="form-control" required>
   </div>
-  <div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" name="sex" id="inlineRadio2" value="female">
-    <label class="form-check-label" for="inlineRadio2">Female</label>
+  <div [hidden]="state.valid || state.pristine" class="alert alert-danger">
+    State is required
   </div>
-  <div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" name="sex" id="inlineRadio3" value="other">
-    <label class="form-check-label" for="inlineRadio3">Other</label>
+  <hr>
+
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input type="number" min="0" max="150" [(ngModel)]="information.age" name="age" #age="ngModel" id="age" class="form-control" required>
   </div>
-<hr>
-<label for="height" class="font-weight-bold">Height</label>
-<div class="input-group">
-  <input type="number" min="0" id="height" class="form-control" aria-describedby="height">
-  <div class="input-group-append">
-    <span class="input-group-text">in Inches</span>
+  <div [hidden]="age.valid || age.pristine" class="alert alert-danger">
+    Age is required
   </div>
-</div>
-<hr>
-<label for="weight" class="font-weight-bold">Weight</label>
-<div class="input-group">
-  <input type="number" min="0" id="weight" class="form-control" aria-describedby="weight">
-  <div class="input-group-append">
-    <span class="input-group-text">in Pounds</span>
+  <hr>
+
+  <div class="form-group">
+    <legend class="col-form-label">Ethnicity</legend>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="ethnicity" [(ngModel)]="information.ethnicity" id="inlineRadio1" value="hispanic or latino">
+      <label class="form-check-label" for="inlineRadio1">Hispanic or Latino</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="ethnicity" [(ngModel)]="information.ethnicity" id="inlineRadio2" value="non-hispanic or non-latino">
+      <label class="form-check-label" for="inlineRadio2">Non Hispanic or Non Latino</label>
+    </div>
   </div>
-</div>
-<br>
-<button type="button" class="btn btn-primary btn-md" routerLink="/">Proceed</button>
+  <hr>
+
+  <div class="form-group">
+    <legend class="col-form-label">Race</legend>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="race" [(ngModel)]="information.race" id="inlineRadio1" value="american indian">
+      <label class="form-check-label" for="inlineRadio1">American Indian</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="race" [(ngModel)]="information.race" id="inlineRadio2" value="asian">
+      <label class="form-check-label" for="inlineRadio2">Asian</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="race" [(ngModel)]="information.race" id="inlineRadio3" value="native hawaiian or other pacific islander">
+      <label class="form-check-label" for="inlineRadio3">Native Hawaiian or Other Pacific Islander</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="race" [(ngModel)]="information.race" id="inlineRadio4" value="black or african american">
+      <label class="form-check-label" for="inlineRadio4">Black or African American</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="race" [(ngModel)]="information.race" id="inlineRadio5" value="white">
+      <label class="form-check-label" for="inlineRadio5">White</label>
+    </div>
+  </div>
+  <hr>
+
+  <div class="form-group">
+    <legend class="col-form-label">Sex</legend>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="sex" [(ngModel)]="information.sex" #sex="ngModel" id="inlineRadio1" value="male" required>
+      <label class="form-check-label" for="inlineRadio1">Male</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="sex" [(ngModel)]="information.sex" #sex="ngModel" id="inlineRadio2" value="female">
+      <label class="form-check-label" for="inlineRadio2">Female</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="sex" [(ngModel)]="information.sex" #sex="ngModel" id="inlineRadio3" value="other">
+      <label class="form-check-label" for="inlineRadio3">Other</label>
+    </div>
+  </div>
+  <div [hidden]="sex.valid || sex.pristine" class="alert alert-danger">
+    Sex is required
+  </div>
+  <hr>
+
+  <div class="form-group">
+    <label for="height">Height</label>
+    <div class="input-group">
+      <input type="number" min="0" [(ngModel)]="information.height" name="height" #height="ngModel" id="height" class="form-control">
+      <div class="input-group-append">
+        <span class="input-group-text">in Inches</span>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <div class="form-group">
+    <label for="weight">Weight</label>
+    <div class="input-group">
+      <input type="number" min="0" [(ngModel)]="information.weight" name="weight" #weight="ngModel" id="weight" class="form-control">
+        <div class="input-group-append">
+          <span class="input-group-text">in Pounds</span>
+        </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-md" [disabled]="!info.form.valid">Proceed</button>
+</form>

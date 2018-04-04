@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -12,7 +13,7 @@ import { InformationComponent } from './components/information/information.compo
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ValidUserGuard } from './components/introduction/valid-user.guard';
 import { FormDataService } from './shared/form-data.service';
-
+import { FormSubmitService } from './shared/form-submit.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +27,10 @@ import { FormDataService } from './shared/form-data.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [FormDataService, ValidUserGuard],
+  providers: [FormDataService, ValidUserGuard, FormSubmitService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

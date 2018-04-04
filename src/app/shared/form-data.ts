@@ -13,23 +13,23 @@ export class FormData {
     this.username = '';
     this.description = '';
     this.state = '';
-    this.age = -1;
+    this.age = 0;
     this.ethnicity = '';
     this.race = '';
     this.sex = '';
-    this.height = -1;
-    this.weight = -1;
+    this.height = 0;
+    this.weight = 0;
   }
 
   clear() {
     this.username = '';
     this.description = '';
     this.state = '';
-    this.age = -1;
+    this.age = 0;
     this.ethnicity = '';
     this.race = '';
     this.sex = '';
-    this.height = -1;
-    this.weight = -1;
+    this.height = 0;
+    this.weight = 0;
   }
 }
